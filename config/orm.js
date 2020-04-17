@@ -2,15 +2,19 @@ const connection = require("./connection")
 
 const orm = {
   selectAll: (tableName, cb) => {
-    connection.query(`SELECT * from ??`, tableName, (err, result) => {
-      if (err) throw err
-      else cb(result)
-    })
+    connection.query(
+      `SELECT * from ?? ORDER BY id DESC`,
+      tableName,
+      (err, result) => {
+        if (err) throw err
+        else cb(result)
+      }
+    )
   },
-  insertOne: (tableName, values, cb) => {
+  insertOne: (tableName, value, cb) => {
     connection.query(
       `INSERT INTO ?? SET ?`,
-      [tableName, values],
+      [tableName, value],
       (err, results) => {
         if (err) throw err
         else cb(results)
@@ -18,10 +22,10 @@ const orm = {
     )
   },
 
-  updateOne: (tableName, columnName, value, id, cb) => {
+  updateOne: (tableName, value, id, cb) => {
     connection.query(
-      `UPDATE ?? SET ?? = ? WHERE id = ?`,
-      [tableName, columnName, value, id],
+      `UPDATE ?? SET ? WHERE id = ?`,
+      [tableName, value, id],
       (err, results) => {
         if (err) throw err
         else cb(results)
