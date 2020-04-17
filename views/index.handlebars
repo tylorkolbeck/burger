@@ -1,0 +1,93 @@
+<style>
+  .burger-container {
+    display: flex;
+    margin: 0 auto;
+    align-content: center;
+    justify-content: center;
+  }
+
+  .burger {
+    display: flex;
+    align-items: center;
+    margin: 8px 0px;
+  }
+
+  .burgers {
+    border: 2px solid grey;
+    border-radius: 20px;
+    padding: 20px;
+    margin: 0 20px;
+  }
+
+  .burgers h2 {
+    margin-bottom: 20px;
+  }
+
+  .input-wrapper {
+    text-align: center;
+  }
+
+  .input-wrapper input {
+    padding: 8px 16px;
+    font-size: 18px;
+    margin: 10px;
+    width: 500px;
+    border-radius: 6px;
+  }
+
+  button {
+    border: none;
+    outline: none;
+    padding: 8px 16px;
+    margin: 0 10px;
+    border-radius: 6px;
+    background: dodgerblue;
+    color: white;
+    font-weight: bold;
+    font-size: 16px;
+  }
+
+  button:hover {
+    cursor: pointer;
+    background: white;
+    color: dodgerblue;
+  }
+</style>
+
+<div class="input-wrapper">
+  <div>
+    <h3>Enter Burger Name</h3>
+    <form id="newBurgerForm">
+      <input id="burgerInput">
+      <button>Add</button>
+    </form>
+  </div>
+
+</div>
+
+<div class="burger-container">
+  <div class="burgers">
+    <h2> Burgers For You To eat</h2>
+    {{#each burgers}}
+    {{#unless devoured}}
+    <div class="burger">
+      <button id="devourButton" data-id={{id}}>Devour</button>
+      <p class="burger-devoured-false">
+        {{burger_name}}</p>
+    </div>
+    {{/unless}}
+    {{/each}}
+  </div>
+  <div class="burgers">
+    <h2>Devoured</h2>
+    {{#each burgers}}
+    {{#if devoured}}
+    <div class="burger">
+      <p data-id={{id}} class="burger-devoured-true">
+        {{burger_name}}</p>
+    </div>
+
+    {{/if}}
+    {{/each}}
+  </div>
+</div>
