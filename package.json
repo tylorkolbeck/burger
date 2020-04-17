@@ -1,7 +1,7 @@
 {
-  "name": "02-Homework",
+  "name": "burger-eater",
   "version": "1.0.0",
-  "description": "### Overview",
+  "description": "An app that uses serverside renders data that is being stored in a MYSQL database.",
   "main": "server.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
@@ -12,7 +12,7 @@
     "url": "git+https://github.com/tylorkolbeck/burger.git"
   },
   "keywords": [],
-  "author": "",
+  "author": "Tylor Kolbeck",
   "license": "ISC",
   "bugs": {
     "url": "https://github.com/tylorkolbeck/burger/issues"
