@@ -1,30 +1,30 @@
 const connection = require("./connection")
 
 const orm = {
-  selectAll: (tableName) => {
+  selectAll: (tableName, cb) => {
     connection.query(`SELECT * from ??`, tableName, (err, result) => {
       if (err) throw err
-      else console.log(result)
+      else cb(result)
     })
   },
-  insertOne: (tableName, values) => {
+  insertOne: (tableName, values, cb) => {
     connection.query(
       `INSERT INTO ?? SET ?`,
       [tableName, values],
       (err, results) => {
         if (err) throw err
-        else console.log(results)
+        else cb(results)
       }
     )
   },
 
-  updateOne: (tableName, columnName, value, id) => {
+  updateOne: (tableName, columnName, value, id, cb) => {
     connection.query(
       `UPDATE ?? SET ?? = ? WHERE id = ?`,
       [tableName, columnName, value, id],
       (err, results) => {
         if (err) throw err
-        else console.log(results)
+        else cb(results)
       }
     )
   },
