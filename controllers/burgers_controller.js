@@ -16,12 +16,10 @@ router.get("/api/burgers", (req, res) => {
 })
 
 router.post("/api/burgers", (req, res) => {
-  Burger.insertOne(
-    { burger_name: req.body.burger_name, devoured: req.body.devoured },
-    (result) => {
-      res.json({ id: result.insertId })
-    }
-  )
+  console.log("!!!!!", req.body)
+  Burger.insertOne({ burger_name: req.body.burger_name }, (result) => {
+    res.json({ id: result.insertId })
+  })
 })
 
 router.put("/api/burgers/:id/devoured", (req, res) => {
