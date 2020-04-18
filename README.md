@@ -4,6 +4,10 @@
 
 This application was made to get practice in creating a custom ORM to interact with MySQL database. The views are server side rendered using handlebars. The app is deployed on heroku with a JawsDB MySQL server.
 
+## Demo
+
+[Demo](https://hidden-atoll-17753.herokuapp.com/)
+
 ## Table of Contents
 
 - [Installation](#installation)
